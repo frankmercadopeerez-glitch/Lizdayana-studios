@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liz Dayana Nuñez - Modelo Profesional</title>
+    <!-- Favicon Links (actualizado a JPG) -->
+    <link rel="icon" type="image/jpeg" href="images/favicon.jpg?v=3">
+    <link rel="apple-touch-icon" href="images/favicon.jpg?v=3">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&amp;family=Inter:wght@400;500&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #111111;
+            color: #E5E7EB; /* gray-200 */
+        }
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+        }
+        .hero-bg {
+            /* Updated to use local image */
+            background-image: linear-gradient(to bottom, rgba(17, 17, 17, 0.9), rgba(17, 17, 17, 0.4), rgba(17, 17, 17, 0.9)), url('images/hero-background.jpg');
+            background-size: cover;
+            background-position: center 30%;
+        }
+        .gallery-img {
+            transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
+        }
+        .gallery-img:hover {
+            transform: scale(1.05);
+            filter: brightness(1.1);
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="overflow-x-hidden">
+
+    <!-- Header -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-black/50 backdrop-blur-sm transition-all duration-300 p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold tracking-wider text-white">LIZ DAYANA</a>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#about" class="text-gray-300 hover:text-white transition-colors duration-300">Sobre Mí</a>
+                <a href="#portfolio" class="text-gray-300 hover:text-white transition-colors duration-300">Portafolio</a>
+                <a href="#contact" class="text-gray-300 hover:text-white transition-colors duration-300">Contacto</a>
+            </nav>
+            <div class="md:hidden">
+                <!-- Mobile menu can be added here if needed -->
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <main>
+        <section class="hero-bg min-h-screen flex flex-col justify-center items-center text-center p-4">
+            <div class="max-w-3xl">
+                <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold text-white leading-tight drop-shadow-lg">Liz Dayana Nuñez</h1>
+                <p class="mt-4 text-lg md:text-xl text-amber-100/90 tracking-widest uppercase drop-shadow-md">
+                    Modelo Profesional &amp; Reina Nacional de la Ganadería
+                </p>
+            </div>
+            <a href="#about" class="absolute bottom-10 animate-bounce">
+                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            </a>
+        </section>
+
+        <!-- About Me Section -->
+        <section id="about" class="py-20 md:py-32 bg-[#1a1a1a]">
+            <div class="container mx-auto px-6 lg:px-8">
+                <div class="grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
+                    <div class="fade-in">
+                        <!-- Updated to use local image -->
+                        <img src="images/about-me.jpg" alt="[Imagen de Liz Dayana en un enterizo blanco y negro]" class="rounded-lg shadow-2xl w-full h-auto object-cover">
+                    </div>
+                    <div class="fade-in">
+                        <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">Sobre Mí</h2>
+                        <p class="text-gray-300 mb-4 leading-relaxed">
+                            Con más de cinco años de experiencia en la industria del modelaje, he tenido el honor de trabajar en diversas campañas y pasarelas. Mi pasión por el arte y la moda me impulsa a buscar constantemente la excelencia en cada proyecto.
+                        </p>
+                        <p class="text-gray-300 leading-relaxed">
+                            Como Reina Nacional de la Ganadería, he representado con orgullo la cultura y la belleza de mi región, una experiencia que ha enriquecido mi carrera y mi perspectiva profesional. Mi objetivo es transmitir elegancia, fuerza y versatilidad a través de mi trabajo.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio Gallery -->
+        <section id="portfolio" class="py-20 md:py-32">
+            <div class="container mx-auto px-6 lg:px-8">
+                <h2 class="text-4xl md:text-5xl font-bold text-center text-white mb-12 fade-in">Portafolio</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+                    <!-- Images updated to use local paths -->
+                    <div class="fade-in">
+                        <img src="images/gallery-1.jpg" alt="[Imagen de Liz Dayana en traje de baño blanco]" class="rounded-lg shadow-lg gallery-img w-full h-full object-cover">
+                    </div>
+                    <div class="fade-in sm:col-span-1 lg:col-span-1">
+                        <img src="images/gallery-2.jpg" alt="[Imagen de retrato de Liz Dayana con maquillaje profesional]" class="rounded-lg shadow-lg gallery-img w-full h-full object-cover">
+                    </div>
+                    <div class="fade-in sm:col-span-2 lg:col-span-1">
+                         <img src="images/gallery-3.jpg" alt="[Imagen de Liz Dayana en traje de baño gris]" class="rounded-lg shadow-lg gallery-img w-full h-full object-cover">
+                    </div>
+                    <div class="fade-in">
+                        <img src="images/gallery-4.jpg" alt="[Imagen de retrato de Liz Dayana con cabello recogido]" class="rounded-lg shadow-lg gallery-img w-full h-full object-cover">
+                    </div>
+                     <div class="fade-in">
+                        <img src="images/gallery-5.jpg" alt="[Imagen de Liz Dayana en traje de baño negro]" class="rounded-lg shadow-lg gallery-img w-full h-full object-cover">
+                    </div>
+                    <div class="fade-in">
+                        <img src="images/gallery-6.jpg" alt="[Collage de varias fotos de modelaje de Liz Dayana]" class="rounded-lg shadow-lg gallery-img w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-20 md:py-32 bg-[#1a1a1a]">
+            <div class="container mx-auto px-6 lg:px-8 text-center">
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-6 fade-in">Trabajemos Juntos</h2>
+                <p class="max-w-2xl mx-auto text-gray-300 mb-10 fade-in">
+                    Estoy disponible para proyectos de modelaje, campañas publicitarias y colaboraciones. Contáctame para discutir cómo podemos crear algo increíble.
+                </p>
+                <div class="flex justify-center items-center space-x-6 fade-in">
+                    <!-- WhatsApp Icon -->
+                    <a href="https://wa.me/573002079982" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-white hover:scale-110 transition-all duration-300">
+                        <i class="fab fa-whatsapp fa-3x"></i>
+                    </a>
+                    <!-- Instagram Icon -->
+                    <a href="https://www.instagram.com/soylizdayana/" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-white hover:scale-110 transition-all duration-300">
+                        <i class="fab fa-instagram fa-3x"></i>
+                    </a>
+                    <!-- Email Icon -->
+                    <a href="mailto:lizdayananunezdelarosa@gmail.com" class="text-gray-300 hover:text-white hover:scale-110 transition-all duration-300">
+                        <i class="far fa-envelope fa-3x"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-8 bg-black">
+        <div class="container mx-auto text-center text-gray-400">
+            <p>&copy; 2025 Liz Dayana Studios S.A.S. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Fade-in animation on scroll
+        const faders = document.querySelectorAll('.fade-in');
+        const appearOptions = {
+            threshold: 0.2,
+            rootMargin: "0px 0px -50px 0px"
+        };
+        const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) {
+                    return;
+                } else {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, appearOptions);
+
+        faders.forEach(fader => {
+            appearOnScroll.observe(fader);
+        });
+    </script>
+</body>
+</html>
+
