@@ -10,15 +10,19 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&amp;family=Inter:wght@400;500&amp;display=swap" rel="stylesheet">
+    <!-- Fuentes actualizadas: 'Inter' eliminada para uniformidad -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Cormorant+Garamond:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         body {
-            font-family: 'Inter', sans-serif;
+            /* Fuente principal cambiada a Cormorant Garamond */
+            font-family: 'Cormorant Garamond', serif;
             background-color: #111111;
             color: #E5E7EB; /* gray-200 */
+            font-size: 1.15rem; /* Ligeramente más grande para legibilidad de la serif */
+            letter-spacing: 0.5px;
         }
-        h1, h2, h3 {
+        h1, h2, h3, h4 {
             font-family: 'Playfair Display', serif;
         }
         .hero-bg {
@@ -29,11 +33,47 @@
         }
         .gallery-img {
             transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
+            cursor: pointer;
         }
         .gallery-img:hover {
             transform: scale(1.05);
             filter: brightness(1.1);
         }
+        /* Estilo para los nuevos logos de redes sociales */
+        .social-icon {
+            width: 40px; /* Tamaño unificado para los logos */
+            height: 40px;
+            /* Filtro grayscale eliminado para mostrar colores originales */
+            transition: all 0.3s ease-in-out;
+        }
+        .social-icon:hover {
+            /* Se mantiene solo el efecto de escala */
+            transform: scale(1.15);
+        }
+        /* Estilo para los enlaces de prensa */
+        .press-link {
+            display: block;
+            padding: 1rem;
+            background-color: #1f1f1f;
+            border: 1px solid #333;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+            margin-bottom: 1rem;
+        }
+        .press-link:hover {
+            border-color: #E5E7EB;
+            transform: translateY(-2px);
+        }
+        .press-link span {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.25rem;
+            color: #E5E7EB;
+        }
+        .press-link p {
+            font-size: 1rem; /* Ajustado para la nueva fuente */
+            color: #9CA3AF; /* gray-400 */
+        }
+
         .fade-in {
             opacity: 0;
             transform: translateY(20px);
@@ -43,6 +83,34 @@
             opacity: 1;
             transform: translateY(0);
         }
+
+        /* Clase para el wrapper responsive del video de YouTube */
+        .video-responsive-wrapper {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            padding-top: 56.25%; /* 16:9 Aspect Ratio */
+            border-radius: 0.5rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .video-responsive-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Estilo uniforme para el subtitulo del hero */
+        .hero-subtitle {
+            font-family: 'Cormorant Garamond', serif !important;
+            font-weight: 500; /* Un peso semigrueso para que destaque */
+            font-size: 1.35rem; /* Un poco más grande */
+            text-transform: uppercase;
+            letter-spacing: 2px; /* Más espaciado */
+        }
     </style>
 </head>
 <body class="overflow-x-hidden">
@@ -51,9 +119,11 @@
     <header class="fixed top-0 left-0 right-0 z-50 bg-black/50 backdrop-blur-sm transition-all duration-300 p-4">
         <div class="container mx-auto flex justify-between items-center">
             <a href="#" class="text-2xl font-bold tracking-wider text-white">LIZ DAYANA</a>
+            <!-- Menú de navegación ahora usa la fuente por defecto (Cormorant Garamond) -->
             <nav class="hidden md:flex space-x-8">
                 <a href="#about" class="text-gray-300 hover:text-white transition-colors duration-300">Sobre Mí</a>
                 <a href="#portfolio" class="text-gray-300 hover:text-white transition-colors duration-300">Portafolio</a>
+                <a href="#press" class="text-gray-300 hover:text-white transition-colors duration-300">Prensa</a>
                 <a href="#contact" class="text-gray-300 hover:text-white transition-colors duration-300">Contacto</a>
             </nav>
             <div class="md:hidden">
@@ -67,8 +137,9 @@
         <section class="hero-bg min-h-screen flex flex-col justify-center items-center text-center p-4">
             <div class="max-w-3xl">
                 <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold text-white leading-tight drop-shadow-lg">Liz Dayana Nuñez</h1>
-                <p class="mt-4 text-lg md:text-xl text-amber-100/90 tracking-widest uppercase drop-shadow-md">
-                    Modelo Profesional &amp; Reina Nacional de la Ganadería
+                <!-- Subtítulo del Hero ahora usa la fuente Cormorant -->
+                <p class="mt-4 text-amber-100/90 drop-shadow-md hero-subtitle">
+                    Modelo Profesional &amp; Creadora de Contenido
                 </p>
             </div>
             <a href="#about" class="absolute bottom-10 animate-bounce">
@@ -82,16 +153,34 @@
                 <div class="grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
                     <div class="fade-in">
                         <!-- Updated to use local image -->
-                        <img src="images/about-me.jpg" alt="[Imagen de Liz Dayana en un enterizo blanco y negro]" class="rounded-lg shadow-2xl w-full h-auto object-cover">
+                        <img src="images/about-me.jpg" alt="[Imagen de Liz Dayana en un enterizo blanco y negro]" class="rounded-lg shadow-2xl w-full h-auto object-cover aspect-[3/4]">
                     </div>
                     <div class="fade-in">
                         <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">Sobre Mí</h2>
+                        <!-- Biografía actualizada, sin edad ni fecha de nacimiento -->
                         <p class="text-gray-300 mb-4 leading-relaxed">
-                            Con más de cinco años de experiencia en la industria del modelaje, he tenido el honor de trabajar en diversas campañas y pasarelas. Mi pasión por el arte y la moda me impulsa a buscar constantemente la excelencia en cada proyecto.
+                            Soy una modelo profesional y Tecnóloga en Turismo e Idiomas, con raíces en Cartagena, Colombia. Mi carrera se ha forjado entre la pasarela y la creación de contenido, destacándome como Reina Nacional de la Ganadería 2024 y Virreina Internacional 2025.
                         </p>
-                        <p class="text-gray-300 leading-relaxed">
-                            Como Reina Nacional de la Ganadería, he representado con orgullo la cultura y la belleza de mi región, una experiencia que ha enriquecido mi carrera y mi perspectiva profesional. Mi objetivo es transmitir elegancia, fuerza y versatilidad a través de mi trabajo.
+                        <p class="text-gray-300 leading-relaxed mb-8">
+                            Mi objetivo es combinar mi formación profesional y mi experiencia frente a la cámara para crear conexiones auténticas con el público y dar vida a la visión de las marcas.
                         </p>
+
+                        <!-- Stats actualizadas - ahora usa la fuente por defecto (Cormorant) -->
+                        <h3 class="text-2xl font-bold text-white mb-4">Stats</h3>
+                        <div class="grid grid-cols-2 gap-y-4 gap-x-2 text-gray-300">
+                            <div>
+                                <span class="block text-sm text-gray-400 uppercase tracking-wider">Altura</span>
+                                <span class="text-lg font-medium">168 cm</span>
+                            </div>
+                            <div>
+                                <span class="block text-sm text-gray-400 uppercase tracking-wider">Medidas</span>
+                                <span class="text-lg font-medium">90 - 60 - 102</span>
+                            </div>
+                            <div>
+                                <span class="block text-sm text-gray-400 uppercase tracking-wider">Origen</span>
+                                <span class="text-lg font-medium">Cartagena, Colombia</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -100,50 +189,199 @@
         <!-- Portfolio Gallery -->
         <section id="portfolio" class="py-20 md:py-32">
             <div class="container mx-auto px-6 lg:px-8">
-                <h2 class="text-4xl md:text-5xl font-bold text-center text-white mb-12 fade-in">Portafolio</h2>
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
-                    <!-- Images updated to use local paths -->
-                    <div class="fade-in">
-                        <img src="images/gallery-1.jpg" alt="[Imagen de Liz Dayana en traje de baño blanco]" class="rounded-lg shadow-lg gallery-img w-full h-full object-cover">
+                <h2 class="text-4xl md:text-5xl font-bold text-center text-white mb-16 fade-in">Portafolio</h2>
+                
+                <!-- 
+                INSTRUCCIONES PARA FOTOS:
+                Frank, aquí organicé las 4 categorías. Para añadir nuevas fotos:
+                1. Nombra tus archivos de imagen siguiendo este formato: 
+                   - Para Beauty: 'beauty-1.jpg', 'beauty-2.jpg', etc.
+                   - Para Editorial: 'editorial-1.jpg', 'editorial-2.jpg', etc.
+                   - Para Comercial: 'comercial-1.jpg', 'comercial-2.jpg', etc.
+                   - Para Swimwear: 'swimwear-1.jpg', 'swimwear-2.jpg', etc.
+                2. Copia uno de los bloques <div>...</div> y reemplaza el 'src="images/gallery-1.jpg"' por el nuevo nombre, ej: 'src="images/beauty-1.jpg"'.
+                3. Asegúrate de que todas las imágenes estén en tu carpeta 'images'.
+                -->
+
+                <!-- Categoría 1: Beauty -->
+                <div class="mb-16 fade-in">
+                    <h3 class="text-3xl font-bold text-white mb-8">Beauty</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+                        <!-- Foto existente -->
+                        <div class="fade-in">
+                            <img src="images/gallery-2.jpg" alt="[Imagen de retrato de Liz Dayana con maquillaje profesional]" class="rounded-lg shadow-lg gallery-img w-full h-full object-cover aspect-[4/5]">
+                        </div>
+                        <!-- Foto existente -->
+                        <div class="fade-in">
+                            <img src="images/gallery-4.jpg" alt="[Imagen de retrato de Liz Dayana con cabello recogido]" class="rounded-lg shadow-lg gallery-img w-full h-full object-cover aspect-[4/5]">
+                        </div>
+                        <!-- Foto repetida para rellenar -->
+                        <div class="fade-in">
+                            <img src="images/gallery-1.jpg" alt="[Imagen de Liz Dayana en traje de baño blanco]" class="rounded-lg shadow-lg gallery-img w-full h-full object-cover aspect-[4/5]">
+                        </div>
                     </div>
-                    <div class="fade-in sm:col-span-1 lg:col-span-1">
-                        <img src="images/gallery-2.jpg" alt="[Imagen de retrato de Liz Dayana con maquillaje profesional]" class="rounded-lg shadow-lg gallery-img w-full h-full object-cover">
+                </div>
+
+                <!-- Categoría 2: Editorial / Moda -->
+                <div class="mb-16 fade-in">
+                    <h3 class="text-3xl font-bold text-white mb-8">Editorial & Moda</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+                        <!-- Foto existente -->
+                        <div class="fade-in">
+                            <img src="images/gallery-6.jpg" alt="[Collage de varias fotos de modelaje de Liz Dayana]" class="rounded-lg shadow-lg gallery-img w-full h-full object-cover aspect-[4/5]">
+                        </div>
+                        <!-- Foto repetida para rellenar -->
+                        <div class="fade-in">
+                            <img src="images/gallery-3.jpg" alt="[Imagen de Liz Dayana en traje de baño gris]" class="rounded-lg shadow-lg gallery-img w-full h-full object-cover aspect-[4/5]">
+                        </div>
+                        <!-- Foto repetida para rellenar -->
+                        <div class="fade-in">
+                            <img src="images/gallery-5.jpg" alt="[Imagen de Liz Dayana en traje de baño negro]" class="rounded-lg shadow-lg gallery-img w-full h-full object-cover aspect-[4/5]">
+                        </div>
                     </div>
-                    <div class="fade-in sm:col-span-2 lg:col-span-1">
-                         <img src="images/gallery-3.jpg" alt="[Imagen de Liz Dayana en traje de baño gris]" class="rounded-lg shadow-lg gallery-img w-full h-full object-cover">
+                </div>
+
+                <!-- Categoría 3: Comercial / Lifestyle -->
+                <div class="mb-16 fade-in">
+                    <h3 class="text-3xl font-bold text-white mb-8">Comercial & Lifestyle</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+                        <!-- Foto repetida para rellenar -->
+                        <div class="fade-in">
+                            <img src="images/gallery-1.jpg" alt="[Imagen de Liz Dayana en traje de baño blanco]" class="rounded-lg shadow-lg gallery-img w-full h-full object-cover aspect-[4/5]">
+                        </div>
+                        <!-- Foto repetida para rellenar -->
+                        <div class="fade-in">
+                            <img src="images/gallery-3.jpg" alt="[Imagen de Liz Dayana en traje de baño gris]" class="rounded-lg shadow-lg gallery-img w-full h-full object-cover aspect-[4/5]">
+                        </div>
+                        <!-- Foto repetida para rellenar -->
+                        <div class="fade-in">
+                            <img src="images/gallery-5.jpg" alt="[Imagen de Liz Dayana en traje de baño negro]" class="rounded-lg shadow-lg gallery-img w-full h-full object-cover aspect-[4/5]">
+                        </div>
                     </div>
-                    <div class="fade-in">
-                        <img src="images/gallery-4.jpg" alt="[Imagen de retrato de Liz Dayana con cabello recogido]" class="rounded-lg shadow-lg gallery-img w-full h-full object-cover">
+                </div>
+
+                <!-- Categoría 4: Swimwear -->
+                <div class="mb-16 fade-in">
+                    <h3 class="text-3xl font-bold text-white mb-8">Swimwear</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+                        <!-- Foto existente -->
+                        <div class="fade-in">
+                            <img src="images/gallery-1.jpg" alt="[Imagen de Liz Dayana en traje de baño blanco]" class="rounded-lg shadow-lg gallery-img w-full h-full object-cover aspect-[4/5]">
+                        </div>
+                        <!-- Foto existente -->
+                        <div class="fade-in">
+                            <img src="images/gallery-3.jpg" alt="[Imagen de Liz Dayana en traje de baño gris]" class="rounded-lg shadow-lg gallery-img w-full h-full object-cover aspect-[4/5]">
+                        </div>
+                        <!-- Foto existente -->
+                        <div class="fade-in">
+                            <img src="images/gallery-5.jpg" alt="[Imagen de Liz Dayana en traje de baño negro]" class="rounded-lg shadow-lg gallery-img w-full h-full object-cover aspect-[4/5]">
+                        </div>
                     </div>
-                     <div class="fade-in">
-                        <img src="images/gallery-5.jpg" alt="[Imagen de Liz Dayana en traje de baño negro]" class="rounded-lg shadow-lg gallery-img w-full h-full object-cover">
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Press & Achievements Section -->
+        <section id="press" class="py-20 md:py-32 bg-[#1a1a1a]">
+            <div class="container mx-auto px-6 lg:px-8">
+                <h2 class="text-4xl md:text-5xl font-bold text-center text-white mb-16 fade-in">Logros y Prensa</h2>
+
+                <!-- Video Entrevista -->
+                <div class="max-w-4xl mx-auto mb-16 fade-in">
+                    <h4 class="text-2xl font-bold text-white mb-8 text-center">Entrevista Destacada</h4>
+                    <div class="video-responsive-wrapper">
+                        <iframe 
+                            src="https://www.youtube.com/embed/9R4pOko63I4" 
+                            title="Entrevista Liz Dayana Núñez - Reina Nacional de la Ganadería" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                        </iframe>
                     </div>
-                    <div class="fade-in">
-                        <img src="images/gallery-6.jpg" alt="[Collage de varias fotos de modelaje de Liz Dayana]" class="rounded-lg shadow-lg gallery-img w-full h-full object-cover">
-                    </div>
+                    <!-- Texto del video ahora usa la fuente por defecto (Cormorant) -->
+                    <p class="text-center text-gray-400 mt-4 text-base">
+                        Coronación y primeras palabras como Reina Nacional de la Ganadería 2024.
+                    </p>
+                </div>
+
+                <!-- Logros -->
+                <div class="max-w-4xl mx-auto mb-16 fade-in">
+                    <h4 class="text-2xl font-bold text-white mb-6 text-center">Reconocimientos</h4>
+                    <!-- 
+                        LISTA DE RECONOCIMIENTOS ACTUALIZADA SEGÚN LA IMAGEN 
+                    -->
+                    <ul class="text-center text-lg text-gray-300 space-y-3">
+                        <!-- Premios Internacionales 2025 -->
+                        <li><span class="text-amber-100/90 font-bold">Virreina Internacional de la Ganadería</span> | 2025</li>
+                        <li><span class="text-amber-100/90 font-bold">Mejor Rostro</span> | Reinado Internacional 2025</li>
+                        <li><span class="text-amber-100/90 font-bold">Mejor Bailarina de Fandango</span> | Reinado Internacional 2025</li>
+                        <li><span class="text-amber-100/90 font-bold">Mejor Traje de Fantasía</span> ("El Susurro del Colibrí") | 2025</li>
+                        <li><span class="text-amber-100/90 font-bold">Rostro Saludable</span> | Reinado Internacional 2025</li>
+                        
+                        <!-- Premio Nacional 2024 (con un pequeño espacio superior) -->
+                        <li class="pt-3"><span class="text-amber-100/90 font-bold">Reina Nacional de la Ganadería</span> | 2024</li>
+                    </ul>
+                </div>
+
+                <!-- Enlaces de Prensa -->
+                <div class="max-w-2xl mx-auto fade-in">
+                    <h4 class="text-2xl font-bold text-white mb-8 text-center">Menciones en Medios</h4>
+
+                    <a href="https://caracol.com.co/2024/06/17/senorita-bolivar-es-la-reina-nacional-de-la-ganaderia-2024/" target="_blank" rel="noopener noreferrer" class="press-link">
+                        <span>Caracol Radio</span>
+                        <p>Señorita Bolívar es la Reina Nacional de la Ganadería 2024</p>
+                    </a>
+                    
+                    <a href="https://www.eluniversal.com.co/farandula/2025/06/23/cartagenera-gana-mejor-traje-de-fantasia-en-el-reinado-de-la-ganaderia-2025/" target="_blank" rel="noopener noreferrer" class="press-link">
+                        <span>El Universal</span>
+                        <p>Cartagenera gana Mejor Traje de Fantasía en el Reinado de la Ganadería 2025</p>
+                    </a>
+
+                    <a href="https://lalenguacaribe.co/2024/region/cordoba/cordoba-ya-tiene-su-reina-nacional-e-internacional-de-la-ganaderia-bolivar-y-brasil/" target="_blank" rel="noopener noreferrer" class="press-link">
+                        <span>La Lengua Caribe</span>
+                        <p>Córdoba ya tiene su reina Nacional de la Ganadería: Bolívar</p>
+                    </a>
+
+                    <a href="https://www.lapiragua.co/srta-bolivar-es-la-reina-nacional-de-la-ganaderia-2024-6957/" target="_blank" rel="noopener noreferrer" class="press-link">
+                        <span>La Piragua</span>
+                        <p>Srta. Bolívar es la Reina Nacional de la Ganadería 2024</p>
+                    </a>
+
+                    <a href="https://www.wradio.com.co/2024/06/17/bolivar-y-brasil-son-las-nevas-reinas-de-la-ganaderia-tras-velada-de-eleccion-en-monteria/" target="_blank" rel="noopener noreferrer" class="press-link">
+                        <span>W Radio</span>
+                        <p>Bolívar y Brasil son las nuevas reinas de la Ganadería tras velada de elección</p>
+                    </a>
+
                 </div>
             </div>
         </section>
 
+
         <!-- Contact Section -->
-        <section id="contact" class="py-20 md:py-32 bg-[#1a1a1a]">
+        <section id="contact" class="py-20 md:py-32">
             <div class="container mx-auto px-6 lg:px-8 text-center">
                 <h2 class="text-4xl md:text-5xl font-bold text-white mb-6 fade-in">Trabajemos Juntos</h2>
                 <p class="max-w-2xl mx-auto text-gray-300 mb-10 fade-in">
-                    Estoy disponible para proyectos de modelaje, campañas publicitarias y colaboraciones. Contáctame para discutir cómo podemos crear algo increíble.
-                </p>
-                <div class="flex justify-center items-center space-x-6 fade-in">
+                    Disponible para proyectos de modelaje, campañas publicitarias y colaboraciones. Contáctame para discutir cómo podemos crear algo increíble.
+                </op>
+                <!-- ICONOS DE REDES SOCIALES ACTUALIZADOS -->
+                <!-- Ajusté el espaciado a space-x-10 para que se vea mejor con 3 iconos -->
+                <div class="flex justify-center items-center space-x-10 fade-in">
+                    
                     <!-- WhatsApp Icon -->
-                    <a href="https://wa.me/573002079982" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-white hover:scale-110 transition-all duration-300">
-                        <i class="fab fa-whatsapp fa-3x"></i>
+                    <a href="https://wa.me/573002079982" target="_blank" rel="noopener noreferrer">
+                        <img src="images/whatsapp-logo.png" alt="WhatsApp" class="social-icon">
                     </a>
+                    
                     <!-- Instagram Icon -->
-                    <a href="https://www.instagram.com/soylizdayana/" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-white hover:scale-110 transition-all duration-300">
-                        <i class="fab fa-instagram fa-3x"></i>
+                    <a href="https://www.instagram.com/soylizdayana/" target="_blank" rel="noopener noreferrer">
+                        <img src="images/instagram-logo.png" alt="Instagram" class="social-icon">
                     </a>
-                    <!-- Email Icon -->
-                    <a href="mailto:lizdayananunezdelarosa@gmail.com" class="text-gray-300 hover:text-white hover:scale-110 transition-all duration-300">
-                        <i class="far fa-envelope fa-3x"></i>
+
+                    <!-- Facebook Icon - ENLACE ACTUALIZADO -->
+                    <a href="https://web.facebook.com/lizdayana.nunezdelarosa" target="_blank" rel="noopener noreferrer">
+                        <img src="images/logo-facebook.png" alt="Facebook" class="social-icon">
                     </a>
                 </div>
             </div>
@@ -152,8 +390,9 @@
 
     <!-- Footer -->
     <footer class="py-8 bg-black">
-        <div class="container mx-auto text-center text-gray-400">
-            <p>&copy; 2025 Liz Dayana Studios S.A.S. Todos los derechos reservados.</p>
+        <!-- Footer ahora usa la fuente por defecto (Cormorant) -->
+        <div class="container mx-auto text-center text-gray-400 text-base">
+            <p>&copy; 2025 Liz Dayana Studios. Todos los derechos reservados.</p>
         </div>
     </footer>
 
